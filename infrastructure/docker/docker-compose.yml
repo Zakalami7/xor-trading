@@ -80,6 +80,31 @@ services:
     networks:
       - xor-network
 
+  # Strategy Engine
+  strategy-engine:
+    build:
+      context: ../../strategy-engine
+      dockerfile: Dockerfile
+    image: xor-trading/strategy-engine:latest
+    container_name: xor-strategy-engine
+    restart: unless-stopped
+    environment:
+      - APP_NAME=XOR Strategy Engine
+      - ENVIRONMENT=${ENVIRONMENT:-production}
+      - DEBUG=${DEBUG:-false}
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-xor_user}:${POSTGRES_PASSWORD:-xor_password}@db:5432/${POSTGRES_DB:-xor_trading}
+      - REDIS_URL=redis://redis:6379/0
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - xor-network
+
 networks:
   xor-network:
     driver: bridge
