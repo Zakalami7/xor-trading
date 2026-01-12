@@ -1,0 +1,49 @@
+# XOR Trading Platform - Backend Requirements
+
+# Core
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Database
+sqlalchemy[asyncio]>=2.0.25
+asyncpg>=0.29.0
+aiosqlite>=0.19.0
+alembic>=1.13.1
+
+# Authentication
+python-jose[cryptography]>=3.3.0
+passlib[argon2,bcrypt]>=1.7.4
+pyotp>=2.9.0
+
+# Security
+cryptography>=41.0.7
+
+# Redis
+redis>=5.0.1
+
+# HTTP Client
+httpx>=0.26.0
+aiohttp>=3.9.1
+
+# Validation
+email-validator>=2.1.0
+jsonschema>=4.21.1
+
+# Monitoring
+prometheus-client>=0.19.0
+structlog>=24.1.0
+
+# Utils
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+
+# Development
+pytest>=7.4.4
+pytest-asyncio>=0.23.3
+pytest-cov>=4.1.0
+httpx>=0.26.0
+black>=24.1.0
+isort>=5.13.2
+mypy>=1.8.0

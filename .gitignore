@@ -1,0 +1,104 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Rust
+target/
+Cargo.lock
+*.rs.bk
+
+# Python
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Docker
+*.log
+
+# Database
+*.db
+*.sqlite3
+
+# Keys and secrets
+*.pem
+*.key
+*.crt
+secrets/
+
+# Backups
+*.bak
+*.backup
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML Models (too large for git)
+*.onnx
+*.pt
+*.pth
+*.h5
+*.pkl
+saved_models/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Logs
+logs/
+*.log
+
+# Test outputs
+test-results/
+playwright-report/
