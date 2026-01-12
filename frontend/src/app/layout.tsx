@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     keywords: ['trading', 'crypto', 'bot', 'algorithmic', 'bitcoin'],
 };
 
+import { Toaster } from 'react-hot-toast';
+
 export default function RootLayout({
     children,
 }: {
@@ -16,6 +18,7 @@ export default function RootLayout({
         <html lang="en" className="dark">
             <body className="min-h-screen">
                 {children}
+                <Toaster position="top-right" />
             </body>
         </html>
     );
