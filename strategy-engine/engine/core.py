@@ -136,3 +136,32 @@ class StrategyEngine:
             "timestamp": datetime.utcnow().isoformat(),
         })
         logger.info(f"Signal emitted for {bot_id}: {signal.type.value}")
+
+
+async def main():
+    """Main entry point."""
+    import os
+    
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    )
+    
+    redis_url = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+    engine = StrategyEngine(redis_url=redis_url)
+    
+    try:
+        await engine.start()
+        # Keep the service running
+        while engine.running:
+            await asyncio.sleep(1)
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        await engine.stop()
+    except Exception as e:
+        logger.error(f"Engine failed: {e}")
+        await engine.stop()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
